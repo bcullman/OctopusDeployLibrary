@@ -8,7 +8,7 @@ $testFolder = [System.IO.Path]::Combine($thisFolder, "scripts");
 
 $testableScripts = @(
     "windows-scheduled-task-create.ScriptBody.ps1",
-    "sql-backup-database.ScriptBody copy.ps1"
+    "sql-backup-database.ScriptBodytmp.ps1"
 );
 foreach( $script in $testableScripts )
 {
