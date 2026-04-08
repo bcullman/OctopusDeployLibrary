@@ -115,7 +115,6 @@ function lint(files, options = {}) {
   return () => {
     return gulp
       .src(files)
-      .pipe(reload({ stream: true, once: true }))
       .pipe($.eslint(options))
       .pipe($.eslint.format("compact"))
       .pipe($.if(!browserSync.active, $.eslint.failOnError()));
@@ -490,7 +489,9 @@ gulp.task(
     );
 
     function reloadServer(done) {
-      server.start.bind(server)();
+      process.chdir(`${buildDir}`);
+      server.start();
+      process.chdir(`../`);
       done();
     }
 
